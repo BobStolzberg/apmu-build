@@ -1,8 +1,9 @@
-public_key: "{{ lookup('file', './keys/ssh-rsa-key.pub') }}"
 group_size: 1
 group_name: APMU2
+group_description: XYZ
 datacenter: VA1
 server_name: APMU2
+server_description: XYZ
 type: standard
 storage_type: standard
 cpu: 2

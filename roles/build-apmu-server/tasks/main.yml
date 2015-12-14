@@ -6,12 +6,14 @@
 - name: CLC | Create APMU Group
   clc_group:
     name: "{{ group_name }}"
+    description: "{{ group_description }}"
     location: "{{ datacenter }}"
     state: present
 
 - name: CLC | Build APMU Server if Needed
   clc_server:
     name: "{{ server_name }}"
+    info: "{{ server_info }}"
     location: "{{ datacenter }}"
     template: va1dynaapmu02
     password: "{{ serverpass.stdout }}"
@@ -25,21 +27,6 @@
     storage_type: "{{ storage_type }}"
     #additional_disks: "{{ disk }}"
   register: APMU
-
-- name: Wait for SSH to Come up on New Servers
-  wait_for: host={{ item.ipaddress }} port=22 delay=5 timeout=320 state=started
-  with_flattened:
-    - APMU.servers
-
-- name: Update known_hosts With New Servers
-  shell: "ssh-keygen -R {{ item.ipaddress }} && ssh-keyscan -t rsa -H {{ item.ipaddress }} >> ~/.ssh/known_hosts"
-  with_flattened:
-    - APMU.servers
-
-- name: Deploy SSH Key to New Servers
-  shell: "echo '{{ public_key }}'|sshpass -p '{{ serverpass.stdout }}' ssh root@{{ item.ipaddress }} 'cat >> ~/.ssh/authorized_keys'"
-  with_flattened:
-    - APMU.servers
 
 - name: Add New Servers to an in-memory Group
   add_host:
