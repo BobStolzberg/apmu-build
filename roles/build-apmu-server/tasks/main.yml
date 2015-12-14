@@ -13,7 +13,7 @@
   clc_server:
     name: "{{ server_name }}"
     location: "{{ datacenter }}"
-    template: VA1DYNAAPMU02
+    template: va1dynaapmu02
     password: "{{ serverpass.stdout }}"
     group: "{{ group_name }}"
     count_group: "{{ group_name }}"
