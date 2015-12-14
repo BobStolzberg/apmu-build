@@ -1,8 +1,8 @@
 group_size: 1
-group_name: APMU3
+group_name: APMU4
 group_description: XYZ
 datacenter: VA1
-server_name: APMU2
+server_name: APMV
 server_description: XYZ
 type: standard
 storage_type: standard
