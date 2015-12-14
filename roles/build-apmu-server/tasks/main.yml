@@ -13,7 +13,7 @@
 - name: CLC | Build APMU Server if Needed
   clc_server:
     name: "{{ server_name }}"
-    server_info: "{{ server_info }}"
+    description: "{{ server_description }}"
     location: "{{ datacenter }}"
     template: va1dynaapmu02
     password: "{{ serverpass.stdout }}"
