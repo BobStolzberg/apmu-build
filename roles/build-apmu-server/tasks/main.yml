@@ -46,6 +46,7 @@
         protocol: 'TCP'
         ports:
             - 3389
-        server_ids: var=APMU.servers
+        server_ids: "{{ item.name }}"
         state: present
       register: clc
+ with_flattened: APMU.servers
