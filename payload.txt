@@ -1,4 +1,4 @@
-API URL: https://api.runner.ctl.io/jobs/ALIAS?immediate=true  < change alias to where this should be exectued >
+API URL: https://api.runner.ctl.io/jobs/DYNA?immediate=true  < change alias to where this should be exectued >
 METHOD: POST
 HEADERS:
 Authorization: Bearer <CLC bearer token for an account with necessary privlegdges to create servers>
@@ -25,5 +25,5 @@ PAYLOAD:
                          "id": "10.93.193.13"
                 }
         ],
-       "properties":{"datacenter": "IL1", "network_id": "08ca6718ae7e492db41cf2cd7fd89a51"}
+       "properties":{"datacenter": "IL1", "network_id": "08ca6718ae7e492db41cf2cd7fd89a51", "group_size": "3"}
 }
