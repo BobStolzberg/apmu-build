@@ -1,0 +1,9 @@
+public_key: "{{ lookup('file', './keys/ssh-rsa-key.pub') }}"
+group_size: 1
+group_name: APMU
+datacenter: IL1
+server_name: APMU
+type: standard
+storage_type: standard
+cpu: 1
+memory: 4
