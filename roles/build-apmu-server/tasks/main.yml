@@ -48,5 +48,5 @@
             - 3389
         server_ids: "{{ item.name }}"
         state: present
+      with_flattened: APMU.servers
       register: clc
- with_flattened: APMU.servers
