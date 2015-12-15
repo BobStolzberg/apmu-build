@@ -35,18 +35,3 @@
     ansible_ssh_user=root
     groupname=APMU
   with_items: APMU.servers
-
-- name: Add Public IP to Server
-  hosts: localhost
-  gather_facts: False
-  connection: local
-  tasks:
-    - name: Create Public IP For Servers
-      clc_publicip:
-        protocol: 'TCP'
-        ports:
-            - 3389
-        server_ids: "{{ item.name }}"
-        state: present
-      with_flattened: APMU.servers
-      register: clc
